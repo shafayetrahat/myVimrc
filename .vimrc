@@ -6,7 +6,9 @@ call vundle#begin()
 "
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'ycm-core/YouCompleteMe'
-
+Plugin 'sirver/ultisnips'
+Bundle 'ervandew/supertab'
+colorscheme codedark 
 """""""""""" All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -29,7 +31,7 @@ function! ToggleVExplorer()
       let t:expl_buf_num = bufnr("%")
   endif
 endfunction
-map <silent> <C-E> :call ToggleVExplorer()<CR>
+map <silent> <C-e> :call ToggleVExplorer()<CR>
 """"""""""""""""""""""""""""""""""""""""""""""
 " Hit enter in the file browser to open the selected
 " file with :vsplit to the right of the browser.
@@ -46,10 +48,22 @@ set autochdir
 set autochdir
 let g:ycm_global_ycm_extra_conf = '/home/shafayetrahat/YouCompleteMe/.ycm_extra_conf.py'
 let g:ycm_key_list_stop_completion = ['<CR>']
-highlight Pmenu ctermfg=15 ctermbg=0 guifg=#ffffff guibg=#75b1d1 gui=bold
+""""highlight Pmenu ctermfg=15 ctermbg=0 guifg=#ffffff guibg=#75b1d1 gui=bold
+
+let g:ycm_auto_trigger=1
+let g:ycm_semantic_triggers = {
+\'c' : ['->','.', ' ', '(', '[', '&'],
+\'cpp,objcpp' : ['->','.', '(', '[', '&', '::','<<','#'],
+\}
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
 set completeopt-=preview
 set encoding=utf-8
-set tabstop=2
+set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 set number
 highlight VertSplit cterm=NONE
 set mouse=a
