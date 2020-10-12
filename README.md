@@ -1,4 +1,4 @@
 # myVimrc
-##This is my vimrc file
+This is my vimrc file
 ### Requirements
-###youcompleteme, vundle
+youcompleteme, vundle
